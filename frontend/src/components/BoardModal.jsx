@@ -1,11 +1,13 @@
 // import React from 'react'
 import styled from 'styled-components'
-// import BoardData from './BoardData'
+import BoardData from './BoardData'
+
 function BoardModal() {
   return (
     <>
-<BoardShadow/>
-{/* <BoardData/> */}
+<BoardShadow>
+<BoardData/>
+</BoardShadow>
     </>
   )
 }
@@ -18,4 +20,5 @@ max-width: 916px;
 height: 755px;
 border-radius: 50px;
 background: rgba(0, 0, 0, 0.34);
+padding: 50px;
 `

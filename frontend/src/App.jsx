@@ -1,19 +1,18 @@
 import './App.css'
 import HeroImg from './components/heroImg'
 import BoardModal from './components/BoardModal'
-import BoardData from './components/BoardData'
+
 
 function App() {
+
 return (
-<section id='landing__page'>
-<div className='landing__page--content'>
+<section id="landing__page">
+<div className="landing__page__content">
 <HeroImg/>
 <BoardModal/>
-<BoardData />
+{/* <BoardData /> */}
 </div>
 </section>
-
-
 
   )
 }
