@@ -1,10 +1,11 @@
 // import React from 'react'
 import styled from 'styled-components'
-
+// import BoardData from './BoardData'
 function BoardModal() {
   return (
     <>
 <BoardShadow/>
+{/* <BoardData/> */}
     </>
   )
 }
