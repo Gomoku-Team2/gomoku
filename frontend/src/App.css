@@ -1,26 +1,27 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    overflow: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 #landing__page {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    background-image: url('assets/image/sky2.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    flex-direction: column;
-    align-items: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-image: url("assets/image/sky2.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex-direction: column;
+  align-items: center;
 }
-.landing__page--content{
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
-margin-bottom: 100px;
+.landing__page--content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 100px;
+  width: 100%;
 }
