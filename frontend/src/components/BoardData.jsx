@@ -1,22 +1,41 @@
-import gameData from '../../../backend/src/routes/game.json'
-import { useEffect } from 'react'
+// import gameData from '../../../backend/src/routes/game.json'
+import { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import axios from 'axios'
 
 const BoardData = () => {
+    const [game, setGame] = useState({})
     useEffect(() => {
-        console.log(gameData)
+        const fetchGame = async () => {
+            try {
+                const res = await axios.get('http://localhost:5000/create')
+                // console.log(res.data)
+                setGame(res.data)
+            } catch (err) {
+                // console.log(err);
+            }
+        }
+
+        fetchGame()
     }, [])
+    // console.log(gameData)
 
     return (
+
         <Wrapper>
-            <Container>
-                {gameData.board.tiles.map((row, rowIndex) =>
+
+        <Container>
+            {game.board ? (
+                game.board.tiles.map((row, rowIndex) =>
                     row.map((cell, colIndex) => (
                         <Square key={`${rowIndex}-${colIndex}`}>{cell}</Square>
                     ))
-                )}
-            </Container>
-        </Wrapper>
+                )
+            ) : (
+                <div>Gameboard is loading</div>
+            )}
+        </Container>
+    </Wrapper>
     )
 }
 
@@ -30,7 +49,6 @@ const Wrapper = styled.div`
 `
 
 const Container = styled.div`
-
     border: 1px solid white;
     display: grid;
     grid-template: repeat(17, 1fr) / repeat(17, 1fr);
@@ -38,8 +56,6 @@ const Container = styled.div`
     width: 100%;
     max-width: 505px;
     height: 505px;
-
-
 `
 const Square = styled.div`
     display: flex;
