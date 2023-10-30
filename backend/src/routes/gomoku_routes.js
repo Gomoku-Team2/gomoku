@@ -14,4 +14,9 @@ router.get('/play', (req, res) => {
     res.json(gameData);
 });
 
+router.post('/api/gomoku/generate_username', (req, res) => {
+   console.log(req)
+    });
+
+
 module.exports = router;
