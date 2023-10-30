@@ -2,7 +2,6 @@ import './App.css'
 import HeroImg from './components/heroImg'
 import BoardModal from './components/BoardModal'
 
-
 function App() {
 
 return (
