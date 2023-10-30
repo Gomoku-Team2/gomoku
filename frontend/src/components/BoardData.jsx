@@ -1,15 +1,27 @@
 import gameData from "../../../backend/src/routes/game.json";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
-import {pinkStone, purpleStone, stoneStyle} from "./Stones"
+import { pinkStone, purpleStone, stoneStyle } from "./Stones";
 
 const BoardData = () => {
   const [currentPlayer, setCurrentPlayer] = useState(1);
   const [boardState, setBoardState] = useState(gameData.board.tiles);
   const [player1Moves, setPlayer1Moves] = useState([]);
   const [player2Moves, setPlayer2Moves] = useState([]);
+  const [isClickEnabled, setClickEnabled] = useState(true);
 
-  
+  function resetGame() {
+    setClickEnabled(false);
+    setBoardState(gameData.board.tiles);
+    setPlayer1Moves([]);
+    setPlayer2Moves([]);
+    setCurrentPlayer(1);
+
+    setTimeout(() => {
+      alert(`Player ${currentPlayer} Wins! The game will now be reset.`);
+      setClickEnabled(true); 
+    }, 100);
+  }
 
   const handleSquareClick = (rowIndex, colIndex) => {
     if (boardState[rowIndex][colIndex] === 0) {
@@ -107,7 +119,7 @@ const BoardData = () => {
     }
 
     if (checkWinCondition(rowIndex, colIndex, currentPlayer)) {
-      console.log(`Player ${currentPlayer} wins!`);
+      resetGame();
     }
   };
 
@@ -118,20 +130,16 @@ const BoardData = () => {
           row.map((cell, colIndex) => (
             <Square
               key={`${rowIndex}-${colIndex}`}
-              onClick={() => handleSquareClick(rowIndex, colIndex)}
+              onClick={
+                isClickEnabled
+                  ? () => handleSquareClick(rowIndex, colIndex)
+                  : null
+              }
             >
               {cell === 1 ? (
-                <img
-                  src={pinkStone}
-                  alt=""
-                  style={stoneStyle}
-                />
+                <img src={pinkStone} alt="" style={stoneStyle} />
               ) : cell === 2 ? (
-                <img
-                  src={purpleStone}
-                  alt=""
-                  style={stoneStyle}
-                />
+                <img src={purpleStone} alt="" style={stoneStyle} />
               ) : (
                 ""
               )}
@@ -168,6 +176,4 @@ const Square = styled.div`
   border: 1px solid white;
   max-width: 33.3px;
   max-height: 33.3px;
-`
-
-;
+`;
