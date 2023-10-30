@@ -8,9 +8,7 @@ const BoardData = () => {
   const [player1Moves, setPlayer1Moves] = useState([]);
   const [player2Moves, setPlayer2Moves] = useState([]);
 
-  useEffect(() => {
-    setPlayer1Moves([]);
-  }, []);
+  
 
   const handleSquareClick = (rowIndex, colIndex) => {
     if (boardState[rowIndex][colIndex] === 0) {
