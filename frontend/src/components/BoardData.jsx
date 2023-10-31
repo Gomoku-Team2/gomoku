@@ -2,9 +2,45 @@
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
-
+import { v4 as uuidv4 } from 'uuid';
+const UUID = uuidv4()
 const BoardData = () => {
     const [game, setGame] = useState({})
+
+    const getUUIDFromLocalStorage = () => {
+        const uuid = localStorage.getItem('uuid');
+        if (!uuid) {
+            // const newUUID = uuidv4(); // Generate a new UUID
+            localStorage.setItem('uuid', UUID); // Save it in local storage
+            return UUID;
+        }
+        return uuid;
+    };
+
+     getUUIDFromLocalStorage();
+  // Function to send player information to the server
+  const joinGame = async () => {
+    const playerName = prompt('Enter your name:'); // You can use your UI to collect the player's name
+    if (playerName) {
+        const playerId = localStorage.getItem('uuid'); // Get the client-side UUID
+
+        try {
+            const response = await axios.post('http://localhost:5000/add_player', {
+                name: playerName,
+                id: playerId,
+            });
+            setGame(response.data);
+        } catch (error) {
+            // Handle errors
+        }
+    }
+};
+
+
+
+
+
+
     useEffect(() => {
         const fetchGame = async () => {
             try {
@@ -35,6 +71,7 @@ const BoardData = () => {
                 <div>Gameboard is loading</div>
             )}
         </Container>
+        <button onClick={joinGame}>Join Game</button>
     </Wrapper>
     )
 }
