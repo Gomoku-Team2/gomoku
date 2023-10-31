@@ -22,9 +22,7 @@ height: fit-content;
 display: flex;
 justify-content: center;
 margin: 50px;
-/* background-color: black; */
 margin-top: 100px;
-border-bottom: 5px #f0ead6 solid;
 `
 
 const Title = styled.h1`
@@ -32,5 +30,6 @@ const Title = styled.h1`
     justify-content: center;
     align-items: start;
     color: #f0ead6;
+    font-size:50px;
     margin-bottom: 10px;
 `
