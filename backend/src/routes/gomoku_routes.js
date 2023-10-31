@@ -4,6 +4,16 @@ const gameData = require('./game.json');  // adjust the path if the file is in a
 const {generateUsername } = require("unique-username-generator");
 
 
+
+// const players= []
+// function create(){
+//     const newUser= {
+//         name: generateUsername()
+//     }
+//     players.push(newUser)
+// } return newUser
+
+
 router.get('/create_game', (req, res) => {
     res.json(gameData);
 });
@@ -17,11 +27,8 @@ router.get('/play', (req, res) => {
 });
 
 router.post('/create/player', (req, res) => {
-
-    const newUser= {
-        name: generateUsername()
-
-    }; res.json(newUser)
+// const newUser= create()
+// res.json(newUser)
 });
 
 
