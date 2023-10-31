@@ -8,7 +8,7 @@ const user2 = localStorage.getItem("Username2")
 const generateUser1= generateUsername()
 const generateUser2= generateUsername()
 //const api = "/api/gomoku/generate_username"
-if (user1 && user2){
+if (user1 || user2){
     console.log(`User1: ${user1}, User2: ${user2} `)
 }
 else {
