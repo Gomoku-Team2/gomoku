@@ -19,7 +19,7 @@ const BoardData = () => {
 
     setTimeout(() => {
       alert(`Player ${currentPlayer} Wins! The game will now be reset.`);
-      setClickEnabled(true); 
+      setClickEnabled(true);
     }, 100);
   }
 
@@ -166,8 +166,8 @@ const Container = styled.div`
   grid-template: repeat(17, 1fr) / repeat(17, 1fr);
   flex-shrink: 0;
   width: 100%;
-  max-width: 505px;
-  height: 505px;
+  max-width: 400px;
+  height: 400px;
 `;
 const Square = styled.div`
   display: flex;
