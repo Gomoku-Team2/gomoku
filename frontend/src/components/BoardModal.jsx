@@ -6,7 +6,11 @@ function BoardModal() {
   return (
     <>
 <BoardShadow>
-<BoardData/>
+  <div className='board-data'>
+  <BoardData/>
+  </div>
+
+
 </BoardShadow>
     </>
   )
@@ -15,10 +19,18 @@ function BoardModal() {
 export default BoardModal
 
 const BoardShadow = styled.div `
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
 width: 100%;
-max-width: 916px;
-height: 755px;
+max-width: 800px;
+height: 800px;
 border-radius: 50px;
 background: rgba(0, 0, 0, 0.34);
-padding: 50px;
+margin:10px 0 20px 0;
+
+.board-data {
+width: 100%;
+}
 `

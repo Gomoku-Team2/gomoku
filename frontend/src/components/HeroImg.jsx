@@ -3,7 +3,7 @@ import styled from 'styled-components'
 function HeroImg() {
   return (
     <Hero>
-      <Title>GOMUKU</Title>
+      <Title>GOMOKU</Title>
     </Hero>
   )
 }
@@ -17,6 +17,7 @@ const Hero = styled.div`
 const Title = styled.h1`
   display: flex;
   justify-content: center;
+  font-size: 50px;
   align-items: start;
   color: #f0ead6;
   margin-bottom: 50px;
