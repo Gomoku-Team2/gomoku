@@ -157,14 +157,15 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-shrink: 1;
+  height: 550px;
+  /* flex-shrink: 1; */
 `;
 
 const Container = styled.div`
   border: 1px solid white;
   display: grid;
   grid-template: repeat(17, 1fr) / repeat(17, 1fr);
-  flex-shrink: 0;
+  /* flex-shrink: 0; */
   width: 100%;
   max-width: 400px;
   height: 400px;
