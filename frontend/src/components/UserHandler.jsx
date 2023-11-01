@@ -33,7 +33,7 @@ export default UserHandler;
 
 
 // axios.post("http://localhost:5173/api/gomoku/create/player")
-// .then ((response)=> response.data())
+// .then ((response)=> response.data.newUser())
 // .then ((newUser) =>{
 
 // localStorage.setItem("User", newUser)
