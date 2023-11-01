@@ -17,6 +17,7 @@ const BoardData = () => {
         return uuid;
     };
 
+
      getUUIDFromLocalStorage();
   // Function to send player information to the server
   const joinGame = async () => {
