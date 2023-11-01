@@ -12,14 +12,11 @@ const BoardData = () => {
   const initialBoard = gameData.board.tiles.map((row) =>
     Array.from(row).fill(0)
   );
-  
+
   useEffect(() => {
     console.log("Player 1 Moves:", player1Moves);
     console.log("Player 2 Moves:", player2Moves);
-  
   }, [player1Moves, player2Moves]);
-
-
 
   function resetGame() {
     setClickEnabled(false);
@@ -30,12 +27,10 @@ const BoardData = () => {
 
     setTimeout(() => {
       alert(`Player ${currentPlayer} Wins! The game will now be reset.`);
-      
+
       setClickEnabled(true);
     }, 100);
   }
-
-
 
   const handleSquareClick = (rowIndex, colIndex) => {
     if (boardState[rowIndex][colIndex] === 0) {
@@ -62,7 +57,6 @@ const BoardData = () => {
         } and column ${colIndex + 1}`
       );
       setCurrentPlayer(currentPlayer === 1 ? 2 : 1);
-    
     }
 
     function checkWinCondition(row, col, player) {

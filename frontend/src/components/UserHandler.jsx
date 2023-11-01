@@ -16,8 +16,7 @@ else {
      localStorage.setItem("Username1", generateUser1)
      localStorage.setItem("Username2", generateUser2)
 }
-console.log("user1", user1)
-console.log("user2", user2)
+
 }
 
 
