@@ -30,6 +30,7 @@ const BoardData = () => {
 
     setTimeout(() => {
       alert(`Player ${currentPlayer} Wins! The game will now be reset.`);
+      
       setClickEnabled(true);
     }, 100);
   }
