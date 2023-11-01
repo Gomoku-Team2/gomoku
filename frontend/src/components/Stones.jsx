@@ -18,5 +18,5 @@ const stoneStyle = {
   height: "30px",
   position: "relative",
   top: "3px",
-  
+
 };
