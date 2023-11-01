@@ -33,9 +33,11 @@ return (
 const PlayerWrapper= styled.div`
 color: white;
 display:flex;
-gap: 100px;
+gap: 71px;
 font-size: 25px;
 font-family: 'Osaka-sans-serif';
+justify-content:center;
+margin: 10px;
 
 `
 
