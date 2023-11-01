@@ -9,6 +9,7 @@ function App() {
 return (
 <section id="landing__page">
 <div className="landing__page__content">
+
 <HeroImg/>
 <BoardModal/>
 <ScoreBoardModal />
