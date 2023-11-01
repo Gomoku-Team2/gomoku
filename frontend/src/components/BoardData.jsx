@@ -4,12 +4,17 @@ import styled from "styled-components";
 import { pinkStone, purpleStone, stoneStyle } from "./Stones";
 
 const BoardData = () => {
-  const [currentPlayer, setCurrentPlayer] = useState(1);
+  const username1= localStorage.getItem("Username1")
+  const username2= localStorage.getItem("Username2")
+  const [currentPlayer, setCurrentPlayer] = useState(3);
   const [boardState, setBoardState] = useState(gameData.board.tiles);
   const [player1Moves, setPlayer1Moves] = useState([]);
   const [player2Moves, setPlayer2Moves] = useState([]);
   const [isClickEnabled, setClickEnabled] = useState(true);
 
+
+console.log(username1)
+console.log(username2)
   function resetGame() {
     setClickEnabled(false);
     setBoardState(gameData.board.tiles);
@@ -18,9 +23,15 @@ const BoardData = () => {
     setCurrentPlayer(1);
 
     setTimeout(() => {
-      alert(`Player ${currentPlayer} Wins! The game will now be reset.`);
+
+let testuser = currentPlayer === 1 ? username1 : username2
+
+
+
+      alert(`Player ${testuser} Wins! The game will now be reset.`);
       setClickEnabled(true);
     }, 100);
+
   }
 
   const handleSquareClick = (rowIndex, colIndex) => {
@@ -144,6 +155,7 @@ const BoardData = () => {
                 ""
               )}
             </Square>
+
           ))
         )}
       </Container>
