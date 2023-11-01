@@ -1,5 +1,5 @@
 import gameData from "../../../backend/src/routes/game.json";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { pinkStone, purpleStone, stoneStyle } from "./Stones";
 
@@ -11,13 +11,24 @@ const BoardData = () => {
   const [player1Moves, setPlayer1Moves] = useState([]);
   const [player2Moves, setPlayer2Moves] = useState([]);
   const [isClickEnabled, setClickEnabled] = useState(true);
+  const initialBoard = gameData.board.tiles.map((row) =>
+    Array.from(row).fill(0)
+  );
+  
+  useEffect(() => {
+    console.log("Player 1 Moves:", player1Moves);
+    console.log("Player 2 Moves:", player2Moves);
+  
+  }, [player1Moves, player2Moves]);
+
+
 
 
 console.log(username1)
 console.log(username2)
   function resetGame() {
     setClickEnabled(false);
-    setBoardState(gameData.board.tiles);
+    setBoardState(initialBoard);
     setPlayer1Moves([]);
     setPlayer2Moves([]);
     setCurrentPlayer(1);
@@ -34,33 +45,34 @@ let testuser = currentPlayer === 1 ? username1 : username2
 
   }
 
+
+
   const handleSquareClick = (rowIndex, colIndex) => {
     if (boardState[rowIndex][colIndex] === 0) {
       const updatedBoard = [...boardState];
-
       updatedBoard[rowIndex][colIndex] = currentPlayer;
 
       if (currentPlayer === 1) {
-        setPlayer1Moves([
-          ...player1Moves,
+        setPlayer1Moves((prevPlayer1Moves) => [
+          ...prevPlayer1Moves,
           { row: rowIndex + 1, col: colIndex + 1 },
         ]);
       } else {
-        setPlayer2Moves([
-          ...player2Moves,
+        setPlayer2Moves((prevPlayer2Moves) => [
+          ...prevPlayer2Moves,
           { row: rowIndex + 1, col: colIndex + 1 },
         ]);
       }
 
       setBoardState(updatedBoard);
+
       console.log(
         `Player ${currentPlayer} placed their mark at row ${
           rowIndex + 1
         } and column ${colIndex + 1}`
       );
       setCurrentPlayer(currentPlayer === 1 ? 2 : 1);
-      console.log(`Player ${currentPlayer}'s turn`);
-      console.log(player1Moves, player2Moves);
+    
     }
 
     function checkWinCondition(row, col, player) {
@@ -137,7 +149,7 @@ let testuser = currentPlayer === 1 ? username1 : username2
   return (
     <Wrapper>
       <Container>
-        {gameData.board.tiles.map((row, rowIndex) =>
+        {boardState.map((row, rowIndex) =>
           row.map((cell, colIndex) => (
             <Square
               key={`${rowIndex}-${colIndex}`}
