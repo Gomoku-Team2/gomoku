@@ -1,6 +1,6 @@
 @font-face{
 font-family: 'Osaka-sans-serif';
-src: url('./assets/image/fonts/osaka-re.ttf') format('truetype');
+src: url('osaka-re.ttf') format('truetype');
 font-style: normal;
 font-style: normal;
 }
