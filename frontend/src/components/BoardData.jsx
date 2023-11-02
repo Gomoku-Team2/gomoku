@@ -4,7 +4,9 @@ import styled from "styled-components";
 import { pinkStone, purpleStone, stoneStyle } from "./Stones";
 
 const BoardData = () => {
-  const [currentPlayer, setCurrentPlayer] = useState(1);
+  const username1= localStorage.getItem("Username1")
+  const username2= localStorage.getItem("Username2")
+  const [currentPlayer, setCurrentPlayer] = useState(3);
   const [boardState, setBoardState] = useState(gameData.board.tiles);
   const [player1Moves, setPlayer1Moves] = useState([]);
   const [player2Moves, setPlayer2Moves] = useState([]);
@@ -16,18 +18,26 @@ const BoardData = () => {
     console.log("Player 2 Moves:", player2Moves);
   }, [player1Moves, player2Moves]);
 
+
   function resetGame() {
     setPlayer1Moves([]);
     setPlayer2Moves([]);
     setCurrentPlayer(1);
 
     if (checkWinCondition) {
-      setTimeout(() => {
-        alert(`Player ${currentPlayer} Wins! The game will now be reset.`);
-        setBoardState(resetBoard);
-        setClickEnabled(true);
-      }, 100);
-    }
+     
+
+    setTimeout(() => {
+
+let testuser = currentPlayer === 1 ? username1 : username2
+
+setBoardState(resetBoard);
+
+      alert(`Player ${testuser} Wins! The game will now be reset.`);
+      setClickEnabled(true);
+    }, 100);
+
+
   }
 
   const handleSquareClick = (rowIndex, colIndex) => {
@@ -224,6 +234,7 @@ const BoardData = () => {
                 ""
               )}
             </Square>
+
           ))
         )}
       </Container>

@@ -15,7 +15,7 @@ function Stones() {
 export default Stones;
 const stoneStyle = {
   width: "30px",
-  height: "30px",
+  height: "20px",
   position: "relative",
   top: "3px",
 
