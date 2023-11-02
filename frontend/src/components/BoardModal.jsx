@@ -1,13 +1,19 @@
 // import React from 'react'
 import styled from 'styled-components'
 import BoardData from './BoardData'
+import PropTypes from 'prop-types';
 
-function BoardModal() {
+function BoardModal({ updateScores }) {
+
+  BoardModal.propTypes = {
+    updateScores: PropTypes.func.isRequired, // expects a function
+  };
+
   return (
     <>
 <BoardShadow>
   <div className='board-data'>
-  <BoardData/>
+  <BoardData updateScores={updateScores}/>
   </div>
 
 
@@ -20,7 +26,6 @@ export default BoardModal
 
 const BoardShadow = styled.div `
 display: flex;
-flex-direction: column;
 align-items: center;
 justify-content: center;
 width: 100%;

@@ -11,7 +11,7 @@ function HeroImg() {
 export default HeroImg
 
 const Hero = styled.div`
-  margin: 50px 0 30px;
+  margin: 30px 0 30px;
 `
 
 const Title = styled.h1`
@@ -19,7 +19,7 @@ const Title = styled.h1`
   justify-content: center;
   font-size: 50px;
   align-items: start;
-  color: #f0ead6;
-  margin-bottom: 50px;
+  color: #ffffff;
+  margin-bottom: 30px;
   font-family: 'Osaka-sans-serif';
 `
