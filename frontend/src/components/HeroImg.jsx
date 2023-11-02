@@ -21,4 +21,5 @@ const Title = styled.h1`
   align-items: start;
   color: #f0ead6;
   margin-bottom: 50px;
+  font-family: 'Osaka-sans-serif';
 `
