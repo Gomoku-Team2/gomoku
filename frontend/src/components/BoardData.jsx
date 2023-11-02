@@ -6,7 +6,7 @@ import { pinkStone, purpleStone, stoneStyle } from "./Stones";
 const BoardData = () => {
   const username1= localStorage.getItem("Username1")
   const username2= localStorage.getItem("Username2")
-  const [currentPlayer, setCurrentPlayer] = useState(3);
+  const [currentPlayer, setCurrentPlayer] = useState(1);
   const [boardState, setBoardState] = useState(gameData.board.tiles);
   const [player1Moves, setPlayer1Moves] = useState([]);
   const [player2Moves, setPlayer2Moves] = useState([]);
@@ -39,6 +39,7 @@ setBoardState(resetBoard);
 
 
   }
+}
 
   const handleSquareClick = (rowIndex, colIndex) => {
     if (boardState[rowIndex][colIndex] === 0) {
