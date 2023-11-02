@@ -8,8 +8,8 @@ const BoardData = () => {
   const username2 = localStorage.getItem("Username2");
   const [currentPlayer, setCurrentPlayer] = useState(1);
   const [boardState, setBoardState] = useState(gameData.board.tiles);
-  const [player1Moves, setPlayer1Moves] = useState([]);
-  const [player2Moves, setPlayer2Moves] = useState([]);
+  const [setPlayer1Moves] = useState([]);
+  const [setPlayer2Moves] = useState([]);
   const [isClickEnabled, setClickEnabled] = useState(true);
   const resetBoard = gameData.board.tiles.map((row) => Array.from(row).fill(0));
 
@@ -48,7 +48,6 @@ const BoardData = () => {
       }
 
       setBoardState(updatedBoard);
-
       setCurrentPlayer(currentPlayer === 1 ? 2 : 1);
     }
 
@@ -189,13 +188,7 @@ const BoardData = () => {
     return false;
   }
 
-  function resetGameChoice() {
-    setPlayer1Moves([]);
-    setPlayer2Moves([]);
-    setCurrentPlayer(1);
-    setBoardState(resetBoard);
-    setClickEnabled(true);
-  }
+
   return (
     <Wrapper>
       <Container>
