@@ -15,8 +15,8 @@ function ScoreBoardModal() {
 export default ScoreBoardModal
 
 const Wrapper = styled.div`
-  height: 170px;
-  width: 500px;
+  height: 200px;
+  width: 600px;
  // max-width: 400px;
   margin-top: 15px;
   margin-bottom: 0px;

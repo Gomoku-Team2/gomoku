@@ -15,7 +15,7 @@ const UserHandler = () => {
     localStorage.setItem("Username1", generateUser1);
     localStorage.setItem("Username2", generateUser2);
   }
-  
+
   return (
       <>
     <PlayerWrapper>
@@ -31,7 +31,7 @@ const PlayerWrapper = styled.div`
 color: white;
 display: flex;
 gap: 71px;
-font-size: 25px;
+font-size: 20px;
 font-family: "Osaka-sans-serif";
 justify-content: center;
 margin: 10px;
@@ -48,13 +48,12 @@ const PlayerTwo = styled.div``;
         //     }
         //     players.push(newUser)
         // } return newUser
-        
+
         // axios.post("http://localhost:5173/api/gomoku/create/player")
         // .then ((response)=> response.data.newUser())
         // .then ((newUser) =>{
-            
+
             // localStorage.setItem("User", newUser)
-            
+
             // })
             // .catch (err=> console.error ("Request failed", err))
-            
