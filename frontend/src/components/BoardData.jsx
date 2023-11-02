@@ -2,8 +2,9 @@ import gameData from "../../../backend/src/routes/game.json";
 import { useState } from "react";
 import styled from "styled-components";
 import { pinkStone, purpleStone, stoneStyle } from "./Stones";
+import PropTypes from 'prop-types';
 
-const BoardData = () => {
+function BoardData ({ updateScores }) {
   const username1 = localStorage.getItem("Username1");
   const username2 = localStorage.getItem("Username2");
   const [currentPlayer, setCurrentPlayer] = useState(1);
@@ -12,6 +13,10 @@ const BoardData = () => {
   const [player2Moves, setPlayer2Moves] = useState([]);
   const [isClickEnabled, setClickEnabled] = useState(true);
   const resetBoard = gameData.board.tiles.map((row) => Array.from(row).fill(0));
+
+  BoardData.propTypes = {
+    updateScores: PropTypes.func.isRequired, // expects a function
+  };
 
   function resetGame() {
     setPlayer1Moves([]);
@@ -26,6 +31,7 @@ const BoardData = () => {
 
         alert(`Player ${testuser} Wins! The game will now be reset.`);
         setClickEnabled(true);
+        updateScores(currentPlayer);
       }, 100);
     }
   }
@@ -215,7 +221,7 @@ const BoardData = () => {
       </Container>
     </Wrapper>
   );
-};
+}
 
 export default BoardData;
 

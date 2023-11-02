@@ -30,11 +30,11 @@ export default UserHandler;
 const PlayerWrapper = styled.div`
 color: white;
 display: flex;
-gap: 71px;
+justify-content: space-around;
 font-size: 20px;
 font-family: "Osaka-sans-serif";
-justify-content: center;
-margin: 10px;
+
+margin: 10px 20px 0px;
 `;
 
 const PlayerOne = styled.div``;
