@@ -1,11 +1,11 @@
 import gameData from "../../../backend/src/routes/game.json";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { pinkStone, purpleStone, stoneStyle } from "./Stones";
 
 const BoardData = () => {
-  const username1= localStorage.getItem("Username1")
-  const username2= localStorage.getItem("Username2")
+  const username1 = localStorage.getItem("Username1");
+  const username2 = localStorage.getItem("Username2");
   const [currentPlayer, setCurrentPlayer] = useState(1);
   const [boardState, setBoardState] = useState(gameData.board.tiles);
   const [player1Moves, setPlayer1Moves] = useState([]);
@@ -13,33 +13,22 @@ const BoardData = () => {
   const [isClickEnabled, setClickEnabled] = useState(true);
   const resetBoard = gameData.board.tiles.map((row) => Array.from(row).fill(0));
 
-  useEffect(() => {
-    console.log("Player 1 Moves:", player1Moves);
-    console.log("Player 2 Moves:", player2Moves);
-  }, [player1Moves, player2Moves]);
-
-
   function resetGame() {
     setPlayer1Moves([]);
     setPlayer2Moves([]);
     setCurrentPlayer(1);
 
     if (checkWinCondition) {
-     
+      setTimeout(() => {
+        let testuser = currentPlayer === 1 ? username1 : username2;
 
-    setTimeout(() => {
+        setBoardState(resetBoard);
 
-let testuser = currentPlayer === 1 ? username1 : username2
-
-setBoardState(resetBoard);
-
-      alert(`Player ${testuser} Wins! The game will now be reset.`);
-      setClickEnabled(true);
-    }, 100);
-
-
+        alert(`Player ${testuser} Wins! The game will now be reset.`);
+        setClickEnabled(true);
+      }, 100);
+    }
   }
-}
 
   const handleSquareClick = (rowIndex, colIndex) => {
     if (boardState[rowIndex][colIndex] === 0) {
@@ -60,11 +49,6 @@ setBoardState(resetBoard);
 
       setBoardState(updatedBoard);
 
-      console.log(
-        `Player ${currentPlayer} placed their mark at row ${
-          rowIndex + 1
-        } and column ${colIndex + 1}`
-      );
       setCurrentPlayer(currentPlayer === 1 ? 2 : 1);
     }
 
@@ -214,9 +198,7 @@ setBoardState(resetBoard);
   }
   return (
     <Wrapper>
-      
       <Container>
-        
         {boardState.map((row, rowIndex) =>
           row.map((cell, colIndex) => (
             <Square
@@ -235,7 +217,6 @@ setBoardState(resetBoard);
                 ""
               )}
             </Square>
-
           ))
         )}
       </Container>
