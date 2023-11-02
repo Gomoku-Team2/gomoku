@@ -11,41 +11,34 @@ const BoardData = () => {
   const [player1Moves, setPlayer1Moves] = useState([]);
   const [player2Moves, setPlayer2Moves] = useState([]);
   const [isClickEnabled, setClickEnabled] = useState(true);
-  const initialBoard = gameData.board.tiles.map((row) =>
-    Array.from(row).fill(0)
-  );
-  
+  const resetBoard = gameData.board.tiles.map((row) => Array.from(row).fill(0));
+
   useEffect(() => {
     console.log("Player 1 Moves:", player1Moves);
     console.log("Player 2 Moves:", player2Moves);
-  
   }, [player1Moves, player2Moves]);
 
 
-
-
-console.log(username1)
-console.log(username2)
   function resetGame() {
-    setClickEnabled(false);
-    setBoardState(initialBoard);
     setPlayer1Moves([]);
     setPlayer2Moves([]);
     setCurrentPlayer(1);
+
+    if (checkWinCondition) {
+     
 
     setTimeout(() => {
 
 let testuser = currentPlayer === 1 ? username1 : username2
 
-
+setBoardState(resetBoard);
 
       alert(`Player ${testuser} Wins! The game will now be reset.`);
       setClickEnabled(true);
     }, 100);
 
+
   }
-
-
 
   const handleSquareClick = (rowIndex, colIndex) => {
     if (boardState[rowIndex][colIndex] === 0) {
@@ -72,7 +65,6 @@ let testuser = currentPlayer === 1 ? username1 : username2
         } and column ${colIndex + 1}`
       );
       setCurrentPlayer(currentPlayer === 1 ? 2 : 1);
-    
     }
 
     function checkWinCondition(row, col, player) {
@@ -146,9 +138,84 @@ let testuser = currentPlayer === 1 ? username1 : username2
     }
   };
 
+  function checkWinCondition(row, col, player) {
+    let count = 1;
+    for (let i = col - 1; i >= 0 && boardState[row][i] === player; i--) {
+      count++;
+    }
+    for (
+      let i = col + 1;
+      i < boardState[row].length && boardState[row][i] === player;
+      i++
+    ) {
+      count++;
+    }
+    if (count >= 5) return true;
+
+    count = 1;
+    for (let i = row - 1; i >= 0 && boardState[i][col] === player; i--) {
+      count++;
+    }
+    for (
+      let i = row + 1;
+      i < boardState.length && boardState[i][col] === player;
+      i++
+    ) {
+      count++;
+    }
+    if (count >= 5) return true;
+
+    count = 1;
+    for (
+      let i = row - 1, j = col - 1;
+      i >= 0 && j >= 0 && boardState[i][j] === player;
+      i--, j--
+    ) {
+      count++;
+    }
+    for (
+      let i = row + 1, j = col + 1;
+      i < boardState.length &&
+      j < boardState[row].length &&
+      boardState[i][j] === player;
+      i++, j++
+    ) {
+      count++;
+    }
+    if (count >= 5) return true;
+
+    count = 1;
+    for (
+      let i = row - 1, j = col + 1;
+      i >= 0 && j < boardState[row].length && boardState[i][j] === player;
+      i--, j++
+    ) {
+      count++;
+    }
+    for (
+      let i = row + 1, j = col - 1;
+      i < boardState.length && j >= 0 && boardState[i][j] === player;
+      i++, j--
+    ) {
+      count++;
+    }
+    if (count >= 5) return true;
+
+    return false;
+  }
+
+  function resetGameChoice() {
+    setPlayer1Moves([]);
+    setPlayer2Moves([]);
+    setCurrentPlayer(1);
+    setBoardState(resetBoard);
+    setClickEnabled(true);
+  }
   return (
     <Wrapper>
+      
       <Container>
+        
         {boardState.map((row, rowIndex) =>
           row.map((cell, colIndex) => (
             <Square

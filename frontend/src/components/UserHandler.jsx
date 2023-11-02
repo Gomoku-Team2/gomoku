@@ -15,11 +15,12 @@ if (user1 || user2){
     console.log(`User1: ${user1}, User2: ${user2} `)
 }
 else {
-    //console.log("User not found")
+
+
     localStorage.setItem("Username1", generateUser1)
     localStorage.setItem("Username2", generateUser2)}
-// console.log("user1", user1)
-// console.log("user2", user2)
+}
+
 return (
     <>
     <PlayerWrapper>
@@ -28,6 +29,7 @@ return (
     </PlayerWrapper>
     </>
 )
+
 }
 
 const PlayerWrapper= styled.div`
