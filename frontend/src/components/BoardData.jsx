@@ -3,6 +3,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { pinkStone, purpleStone, stoneStyle } from "./Stones";
 import PropTypes from 'prop-types';
+import WinnerMessage from "./WinnerMessage";
 
 function BoardData ({ updateScores, currentPlayer, handleCurrentPlayer  }) {
   const username1 = localStorage.getItem("Username1");
@@ -11,8 +12,9 @@ function BoardData ({ updateScores, currentPlayer, handleCurrentPlayer  }) {
   const [boardState, setBoardState] = useState(gameData.board.tiles);
   const [player1Moves, setPlayer1Moves] = useState([]);
   const [player2Moves, setPlayer2Moves] = useState([]);
-  const [isClickEnabled, setClickEnabled] = useState(true);
+  const [isClickEnabled] = useState(true);
   const resetBoard = gameData.board.tiles.map((row) => Array.from(row).fill(0));
+  const [winningPlayer, setWinner] = useState(null);
 
   BoardData.propTypes = {
     updateScores: PropTypes.func.isRequired, // expects a function
@@ -24,17 +26,19 @@ function BoardData ({ updateScores, currentPlayer, handleCurrentPlayer  }) {
     setPlayer1Moves([]);
     setPlayer2Moves([]);
     handleCurrentPlayer(1);
+    setCurrentPlayer(1);
+    setWinner(null)
 
+    setBoardState(resetBoard);
+  }
+
+  function checkForWinner (){
     if (checkWinCondition) {
       setTimeout(() => {
-        let testuser = currentPlayer === 1 ? username1 : username2;
-
-        setBoardState(resetBoard);
-
-        alert(`Player ${testuser} Wins! The game will now be reset.`);
-        setClickEnabled(true);
+        const winningPlayer = currentPlayer === 1 ? username1 : username2;
+        setWinner(winningPlayer);
         updateScores(currentPlayer);
-      }, 100);
+      }, 800);
     }
   }
 
@@ -126,7 +130,7 @@ function BoardData ({ updateScores, currentPlayer, handleCurrentPlayer  }) {
     }
 
     if (checkWinCondition(rowIndex, colIndex, currentPlayer)) {
-      resetGame();
+      checkForWinner();
     }
   };
 
@@ -221,6 +225,7 @@ function BoardData ({ updateScores, currentPlayer, handleCurrentPlayer  }) {
           ))
         )}
       </Container>
+      {winningPlayer && <WinnerMessage winner={winningPlayer} resetGame={resetGame} />}
     </Wrapper>
   );
 }

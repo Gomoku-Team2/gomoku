@@ -1,8 +1,14 @@
-@font-face{
-font-family: 'Osaka-sans-serif';
-src: url('osaka-re.ttf') format('truetype');
-font-style: normal;
-font-style: normal;
+@font-face {
+    font-family: 'Osaka-sans-serif';
+    src: url('osaka-re.ttf') format('truetype');
+    font-style: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Permanent Marker';
+    src: url('PermanentMarker.ttf') format('truetype');
+    font-style: normal;
+    font-style: normal;
 }
 
 * {
