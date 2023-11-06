@@ -14,7 +14,7 @@ function WinnerMessage({ winner, resetGame }) {
     <Overlay>
      <WinnerMsg>
         <h2>{`Winner!`}</h2>
-        <h3>${winner}</h3>
+        <h3>{winner}</h3>
         <button onClick={resetGame}>PLAY AGAIN</button>
      </WinnerMsg>
     </Overlay>
@@ -43,7 +43,7 @@ const WinnerMsg = styled.div`
   justify-content: center;
   align-items: center;
   height: 300px;
-  width: 500px;
+  width: 800px;
   /* background: rgba(5, 250, 127, 0.50); */
   /* border: 2px solid white; */
   /* background: linear-gradient(to right, rgba(0, 38, 255, 0.5), rgba(128, 0, 128, 0.5)); */

@@ -26,7 +26,7 @@ function BoardData ({ updateScores, currentPlayer, handleCurrentPlayer  }) {
     setPlayer1Moves([]);
     setPlayer2Moves([]);
     handleCurrentPlayer(1);
-    setCurrentPlayer(1);
+    // setCurrentPlayer(1);
     setWinner(null)
 
     setBoardState(resetBoard);
