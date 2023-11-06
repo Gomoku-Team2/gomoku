@@ -38,8 +38,7 @@ color: white;
 display: flex;
 justify-content: space-around;
 font-size: 20px;
-font-family: "Osaka-sans-serif";
-
+font-family: "Osaka-sans-serif"; 
 margin: 10px 20px 0px;
 
 `;
