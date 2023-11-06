@@ -1,8 +1,11 @@
 //import axios from 'axios'
 import styled from "styled-components";
 import { generateUsername } from "unique-username-generator";
+import PropTypes from 'prop-types';
 
-const UserHandler = () => {
+
+const UserHandler = ({currentPlayer}) => {
+
   const user1 = localStorage.getItem("Username1");
   const user2 = localStorage.getItem("Username2");
 
@@ -15,12 +18,15 @@ const UserHandler = () => {
     localStorage.setItem("Username1", generateUser1);
     localStorage.setItem("Username2", generateUser2);
   }
+  UserHandler.propTypes={
+    currentPlayer: PropTypes.func.isRequired
+  }
 
   return (
       <>
     <PlayerWrapper>
-      <PlayerOne>{user1} </PlayerOne>
-      <PlayerTwo>{user2}</PlayerTwo>
+      <PlayerOne isCurrentPlayer={currentPlayer===1}>{user1} </PlayerOne>
+      <PlayerTwo isCurrentPlayer={currentPlayer===2}>{user2}</PlayerTwo>
     </PlayerWrapper>
   </>
 );
@@ -35,10 +41,17 @@ font-size: 20px;
 font-family: "Osaka-sans-serif";
 
 margin: 10px 20px 0px;
+
 `;
 
-const PlayerOne = styled.div``;
-const PlayerTwo = styled.div``;
+const PlayerOne = styled.div`
+color: ${props => (props.isCurrentPlayer? "#FD709A": "white")}
+
+`;
+const PlayerTwo = styled.div`
+color: ${props => (props.isCurrentPlayer? "#BF70FD": "white")}
+
+`;
 
 
 // const players= []

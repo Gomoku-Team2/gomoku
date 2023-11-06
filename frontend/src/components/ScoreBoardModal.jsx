@@ -3,20 +3,21 @@ import ScoreBoardData from "./ScoreBoardData"
 import UserHandler from './UserHandler'
 import PropTypes from 'prop-types';
 
-function ScoreBoardModal({ scores }) {
+function ScoreBoardModal({ scores, currentPlayer }) {
 
   ScoreBoardModal.propTypes = {
     scores: PropTypes.shape({
       player1: PropTypes.number.isRequired,
       player2: PropTypes.number.isRequired,
-    }).isRequired,
+    }),
+    currentPlayer: PropTypes.func.isRequired
   };
 
   return (
     <>
       <Wrapper>
-         <UserHandler />
-        <ScoreBoardData scores={scores}/>
+         <UserHandler currentPlayer={currentPlayer} />
+        <ScoreBoardData scores={scores} />
       </Wrapper>
     </>
   )

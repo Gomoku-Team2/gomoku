@@ -5,7 +5,7 @@ import ScoreBoardModal from './components/ScoreBoardModal'
 import { useState } from 'react'
 
 function App() {
-
+const [currentPlayer, setCurrentPlayer]= useState(1)
   const [scores, setScores] = useState({ player1: 0, player2: 0 });
 
   const updateScores = (winner) => {
@@ -21,8 +21,8 @@ return (
 <div className="landing__page__content">
 
 <HeroImg/>
-<BoardModal updateScores={updateScores}/>
-<ScoreBoardModal scores={scores}/>
+<BoardModal updateScores={updateScores} currentPlayer={currentPlayer} handleCurrentPlayer={setCurrentPlayer}/>
+<ScoreBoardModal scores={scores} currentPlayer={currentPlayer}/>
 </div>
 </section>
 

@@ -3,17 +3,19 @@ import styled from 'styled-components'
 import BoardData from './BoardData'
 import PropTypes from 'prop-types';
 
-function BoardModal({ updateScores }) {
+function BoardModal({ updateScores, currentPlayer, handleCurrentPlayer }) {
 
   BoardModal.propTypes = {
     updateScores: PropTypes.func.isRequired, // expects a function
+    currentPlayer: PropTypes.func.isRequired,
+    handleCurrentPlayer: PropTypes.func.isRequired
   };
 
   return (
     <>
 <BoardShadow>
   <div className='board-data'>
-  <BoardData updateScores={updateScores}/>
+  <BoardData updateScores={updateScores} currentPlayer={currentPlayer} handleCurrentPlayer={handleCurrentPlayer}/>
   </div>
 
 

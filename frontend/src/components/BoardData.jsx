@@ -4,10 +4,10 @@ import styled from "styled-components";
 import { pinkStone, purpleStone, stoneStyle } from "./Stones";
 import PropTypes from 'prop-types';
 
-function BoardData ({ updateScores }) {
+function BoardData ({ updateScores, currentPlayer, handleCurrentPlayer  }) {
   const username1 = localStorage.getItem("Username1");
   const username2 = localStorage.getItem("Username2");
-  const [currentPlayer, setCurrentPlayer] = useState(1);
+  //const [currentPlayer, setCurrentPlayer] = useState(player);
   const [boardState, setBoardState] = useState(gameData.board.tiles);
   const [player1Moves, setPlayer1Moves] = useState([]);
   const [player2Moves, setPlayer2Moves] = useState([]);
@@ -16,12 +16,14 @@ function BoardData ({ updateScores }) {
 
   BoardData.propTypes = {
     updateScores: PropTypes.func.isRequired, // expects a function
+    currentPlayer: PropTypes.func.isRequired, // expects a function
+    handleCurrentPlayer: PropTypes.func.isRequired // expects a function
   };
 
   function resetGame() {
     setPlayer1Moves([]);
     setPlayer2Moves([]);
-    setCurrentPlayer(1);
+    handleCurrentPlayer(1);
 
     if (checkWinCondition) {
       setTimeout(() => {
@@ -54,7 +56,7 @@ function BoardData ({ updateScores }) {
       }
 
       setBoardState(updatedBoard);
-      setCurrentPlayer(currentPlayer === 1 ? 2 : 1);
+      handleCurrentPlayer(currentPlayer === 1 ? 2 : 1);
     }
 
     function checkWinCondition(row, col, player) {
