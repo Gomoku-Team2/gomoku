@@ -1,0 +1,4 @@
+.win-highlight {
+    border: 2px solid green;
+    border-radius: 50%; /* Optional: Makes the border circular */
+  }
