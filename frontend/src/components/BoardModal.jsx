@@ -19,7 +19,6 @@ function BoardModal({ updateScores, currentPlayer, handleCurrentPlayer }) {
   <div className='board-data'>
   <BoardData updateScores={updateScores} currentPlayer={currentPlayer} handleCurrentPlayer={handleCurrentPlayer}/>
   </div>
-
   <GameRules />
 </BoardShadow>
     </>
@@ -31,16 +30,17 @@ export default BoardModal
 const BoardShadow = styled.div `
 display: flex;
 align-items: center;
-justify-content: left;
+justify-content: center;
 width: 100%;
-max-width: 800px;
+max-width: 900px;
 height: 800px;
 border-radius: 50px;
 background: rgba(0, 0, 0, 0.34);
 margin:10px 0 20px 0;
 
 .board-data {
-width: 70%;
+width: 55%;
+
 }
 /* .game-rules{
 position: relative;
