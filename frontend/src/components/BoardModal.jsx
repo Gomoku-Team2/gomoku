@@ -19,7 +19,6 @@ function BoardModal({ updateScores, currentPlayer, handleCurrentPlayer }) {
   <div className='board-data'>
   <BoardData updateScores={updateScores} currentPlayer={currentPlayer} handleCurrentPlayer={handleCurrentPlayer}/>
   </div>
-
   <GameRules />
 </BoardShadow>
     </>
@@ -40,7 +39,7 @@ background: rgba(0, 0, 0, 0.34);
 margin-bottom: 20px;
 
 .board-data {
-width: 100%;
+width: 55%;
 }
 /* .game-rules{
 position: relative;
