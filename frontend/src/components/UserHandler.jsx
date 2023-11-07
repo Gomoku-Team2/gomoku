@@ -9,8 +9,8 @@ const UserHandler = ({currentPlayer}) => {
   const user1 = localStorage.getItem("Username1");
   const user2 = localStorage.getItem("Username2");
 
-  let generateUser1 = generateUsername();
-  let generateUser2 = generateUsername();
+  let generateUser1 = generateUsername("",0,8);
+  let generateUser2 = generateUsername("",0,8);
   //const api = "/api/gomoku/generate_username"
   if (user1 || user2) {
     console.log(`User1: ${user1}, User2: ${user2} `);
