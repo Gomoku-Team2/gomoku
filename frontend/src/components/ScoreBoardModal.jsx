@@ -28,11 +28,15 @@ export default ScoreBoardModal
 const Wrapper = styled.div`
 display: flex;
 flex-direction: column;
-  height: 200px;
-  width: 600px;
+justify-content: center;
+/* align-items: center; */
+  height: 230px;
+  /* width: 600px; */
  // max-width: 400px;
   margin-top: 15px;
-  margin-bottom: 0px;
+  margin-bottom: 30px;
   border-radius: 30px;
   background: rgba(0, 0, 0, 0.34);
+width: 100%;
+max-width: 600px;
 `

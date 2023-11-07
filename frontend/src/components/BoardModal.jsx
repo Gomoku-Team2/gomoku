@@ -31,16 +31,16 @@ export default BoardModal
 const BoardShadow = styled.div `
 display: flex;
 align-items: center;
-justify-content: left;
+justify-content: center;
 width: 100%;
 max-width: 800px;
-height: 800px;
+height: 850px;
 border-radius: 50px;
 background: rgba(0, 0, 0, 0.34);
-margin:10px 0 20px 0;
+margin-bottom: 20px;
 
 .board-data {
-width: 70%;
+width: 100%;
 }
 /* .game-rules{
 position: relative;
