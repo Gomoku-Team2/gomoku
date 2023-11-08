@@ -28,12 +28,17 @@ console.log(showRules)
   )
 }
 const GameRulesContainer=styled.div`
+/* position: absolute;
+top: 25px;
+right: 10px;
+  background: ${props => (props.styleShowRules? "rgba(0, 0, 0, 0.8)": "none")};
+  padding: 190px 105px ;
+  border-radius: 10px; */
 @media (max-width: 400px){
-    position: fixed;
+    position: absolute;
     top: 0;
-    left: 200px;
-  width: 100%;
-  height: 48%;
+    padding: 190px 100px ;
+    left:200px;
   border-radius: 10px;
   background: ${props => (props.styleShowRules? "rgba(0, 0, 0, 0.8)": "none")}
 }
@@ -52,39 +57,27 @@ cursor: pointer;
 @media (max-width: 400px) {
     padding: 5px 10px;
     font-size: 14px
-
   }
 `
 
 const ButtonContainer= styled.div `
 position: absolute;
-top: 135px;
-margin-left: 30px;
+top: 20px;
+right: 20px;
 box-shadow: 2px 2px #ffffffbe;
 border-radius: 10px;
-
-@media (max-width: 400px) {
-    position: fixed;
-    left: 270px;
-    top: 10px
-  }
 `
 const RulesContainer= styled.div`
 position: absolute;
-top: 210px;
+top: 80px;
+right: 20px;
 border: 1px solid grey;
 padding: 10px;
 width: 180px;
-height: 300px;
+height: 290px;
 border-radius: 10px;
 background-color: #ff000018;
 box-shadow: 2px 2px #ffffffa9;
-@media (max-width: 400px) {
-    position: fixed;
-    left: 200px;
-    top: 90px
-
-  }
 `
 
 const Rules= styled.div`

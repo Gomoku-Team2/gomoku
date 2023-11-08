@@ -1,5 +1,5 @@
 import './App.css'
-import HeroImg from './components/heroImg'
+import HeroImg from './components/HeroImg'
 import BoardModal from './components/BoardModal'
 import ScoreBoardModal from './components/ScoreBoardModal'
 import { useState } from 'react'
