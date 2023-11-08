@@ -12,7 +12,7 @@ const [showRules, setShowRules]= useState(false);
 console.log(showRules)
 
   return (
-    <GameRulesContainer styleShowRules={showRules}>
+    <GameRulesContainer showRules={showRules}>
         <ButtonContainer>
         <RulesButton onClick={()=> {setShowRules(!showRules)}}>Rules <FontAwesomeIcon icon={faChevronDown}  style={{color: "#f7f7f8",}} />
  </RulesButton>
@@ -20,7 +20,7 @@ console.log(showRules)
         {showRules &&
         <RulesContainer >
             <Rules>Gomoku is a two-player game on a 19x19 grid.
-                <br /> The objective is to create a line of five stones in a row. Either horisontellt, vertikalt or diagonalt.<br />
+                <br /> The objective is to create a line of five stones in a row. Either horizontally, vertically or diagonally.<br />
                 <br />Players take turns placing stones until one player achieves five in a row or the board is full.</Rules>
         </RulesContainer>
         }
@@ -28,19 +28,13 @@ console.log(showRules)
   )
 }
 const GameRulesContainer=styled.div`
-/* position: absolute;
-top: 25px;
-right: 10px;
-  background: ${props => (props.styleShowRules? "rgba(0, 0, 0, 0.8)": "none")};
-  padding: 190px 105px ;
-  border-radius: 10px; */
-@media (max-width: 400px){
+@media (max-width: 700px){
     position: absolute;
     top: 0;
     padding: 190px 100px ;
-    left:200px;
+    right:20px;
   border-radius: 10px;
-  background: ${props => (props.styleShowRules? "rgba(0, 0, 0, 0.8)": "none")}
+  background: ${props => (props.showRules? "rgba(0, 0, 0, 0.8)": "none")}
 }
 `
 
@@ -54,7 +48,7 @@ cursor: pointer;
 &:hover {
     background-color: #d41f1f83;
 }
-@media (max-width: 400px) {
+@media (max-width: 700px) {
     padding: 5px 10px;
     font-size: 14px
   }
