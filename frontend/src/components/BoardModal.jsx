@@ -39,9 +39,6 @@ background: rgba(0, 0, 0, 0.34);
 margin-bottom: 20px;
 
 .board-data {
-width: 55%;
+width: 100%;
 }
-/* .game-rules{
-position: relative;
-} */
 `
