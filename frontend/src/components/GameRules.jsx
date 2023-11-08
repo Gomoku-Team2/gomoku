@@ -20,7 +20,7 @@ console.log(showRules)
         {showRules &&
         <RulesContainer >
             <Rules>Gomoku is a two-player game on a 19x19 grid.
-                <br /> The objective is to create a line of five stones in a row. Either horisontellt, vertikalt or diagonalt.<br />
+                <br /> The objective is to create a line of five stones in a row. Either horizontally, vertically or diagonally.<br />
                 <br />Players take turns placing stones until one player achieves five in a row or the board is full.</Rules>
         </RulesContainer>
         }
