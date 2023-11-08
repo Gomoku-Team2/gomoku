@@ -64,71 +64,7 @@ function BoardData ({ updateScores, currentPlayer, handleCurrentPlayer  }) {
       handleCurrentPlayer(currentPlayer === 1 ? 2 : 1);
     }
 
-    function checkWinCondition(row, col, player) {
-      let count = 1;
-      for (let i = col - 1; i >= 0 && boardState[row][i] === player; i--) {
-        count++;
-      }
-      for (
-        let i = col + 1;
-        i < boardState[row].length && boardState[row][i] === player;
-        i++
-      ) {
-        count++;
-      }
-      if (count >= 5) return true;
-
-      count = 1;
-      for (let i = row - 1; i >= 0 && boardState[i][col] === player; i--) {
-        count++;
-      }
-      for (
-        let i = row + 1;
-        i < boardState.length && boardState[i][col] === player;
-        i++
-      ) {
-        count++;
-      }
-      if (count >= 5) return true;
-
-      count = 1;
-      for (
-        let i = row - 1, j = col - 1;
-        i >= 0 && j >= 0 && boardState[i][j] === player;
-        i--, j--
-      ) {
-        count++;
-      }
-      for (
-        let i = row + 1, j = col + 1;
-        i < boardState.length &&
-        j < boardState[row].length &&
-        boardState[i][j] === player;
-        i++, j++
-      ) {
-        count++;
-      }
-      if (count >= 5) return true;
-
-      count = 1;
-      for (
-        let i = row - 1, j = col + 1;
-        i >= 0 && j < boardState[row].length && boardState[i][j] === player;
-        i--, j++
-      ) {
-        count++;
-      }
-      for (
-        let i = row + 1, j = col - 1;
-        i < boardState.length && j >= 0 && boardState[i][j] === player;
-        i++, j--
-      ) {
-        count++;
-      }
-      if (count >= 5) return true;
-
-      return false;
-    }
+   
 
     if (checkWinCondition(rowIndex, colIndex, currentPlayer)) {
       checkForWinner();
