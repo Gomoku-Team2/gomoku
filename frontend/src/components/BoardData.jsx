@@ -12,7 +12,7 @@ function BoardData ({ updateScores, currentPlayer, handleCurrentPlayer  }) {
   const [boardState, setBoardState] = useState(gameData.board.tiles);
   const [player1Moves, setPlayer1Moves] = useState([]);
   const [player2Moves, setPlayer2Moves] = useState([]);
-  const [isClickEnabled] = useState(true);
+  const [isClickEnabled, setIsClickEnabled] = useState(true);
   const resetBoard = gameData.board.tiles.map((row) => Array.from(row).fill(0));
   const [winningPlayer, setWinner] = useState(null);
 
@@ -28,12 +28,13 @@ function BoardData ({ updateScores, currentPlayer, handleCurrentPlayer  }) {
     handleCurrentPlayer(1);
     // setCurrentPlayer(1);
     setWinner(null)
-
+    setIsClickEnabled (true);
     setBoardState(resetBoard);
   }
 
   function checkForWinner (){
     if (checkWinCondition) {
+        setIsClickEnabled (false);
       setTimeout(() => {
         const winningPlayer = currentPlayer === 1 ? username1 : username2;
         setWinner(winningPlayer);
