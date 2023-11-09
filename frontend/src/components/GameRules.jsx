@@ -29,10 +29,10 @@ console.log(showRules)
 }
 const GameRulesContainer=styled.div`
 @media (max-width: 700px){
-    position: absolute;
-    top: -10px;
-    padding: 190px 100px;
-    right: -5px;
+  position: absolute;
+  top: -10px;
+  padding: 182px 100px;
+  right: -5px;
   border-radius: 10px;
   background: ${props => (props.showRules? "rgba(0, 0, 0, 0.8)": "none")}
 }
@@ -72,6 +72,13 @@ height: 290px;
 border-radius: 10px;
 background-color: #ff000018;
 box-shadow: 2px 2px #ffffffa9;
+z-index: 2;
+
+@media (max-width: 700px) {
+    margin-top: -10px;
+    background-color: #701c1ce8;
+
+  }
 `
 
 const Rules= styled.div`
