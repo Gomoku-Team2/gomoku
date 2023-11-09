@@ -30,4 +30,8 @@ const ScoreBoard = styled.div`
   color: #ffffff;
   margin-bottom: 10px;
   font-family: "Osaka-sans-serif";
+
+@media only screen and (max-width: 428px) { /* Adjust max-width as needed for iPhone 12 Pro */
+    font-size: 28px; /* Font size for mobile views */
+}
 `
