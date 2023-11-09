@@ -1,10 +1,16 @@
 import styled from 'styled-components'
+import GameRules from './GameRules';
+
 
 function HeroImg() {
     return (
         <Hero>
+            <GameRules />
+
             <Title>GOMOKU</Title>
+
         </Hero>
+
     )
 }
 

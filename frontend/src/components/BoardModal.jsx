@@ -1,7 +1,6 @@
 // import React from 'react'
 import styled from 'styled-components'
 import BoardData from './BoardData'
-import GameRules from './GameRules';
 import PropTypes from 'prop-types';
 
 function BoardModal({ updateScores, currentPlayer, handleCurrentPlayer }) {
@@ -19,7 +18,6 @@ function BoardModal({ updateScores, currentPlayer, handleCurrentPlayer }) {
   <div className='board-data'>
   <BoardData updateScores={updateScores} currentPlayer={currentPlayer} handleCurrentPlayer={handleCurrentPlayer}/>
   </div>
-  <GameRules />
 </BoardShadow>
     </>
   )
@@ -40,6 +38,8 @@ margin-bottom: 20px;
 
 .board-data {
 width: 100%;
+z-index: 1;
+
 }
 
 @media only screen and (max-width: 500px) {
