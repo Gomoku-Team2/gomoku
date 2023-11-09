@@ -41,4 +41,9 @@ margin-bottom: 20px;
 .board-data {
 width: 100%;
 }
+
+@media only screen and (max-width: 500px) {
+    height: 450px;
+    border-radius: 0;
+  }
 `
