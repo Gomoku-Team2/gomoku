@@ -39,4 +39,8 @@ justify-content: center;
   background: rgba(0, 0, 0, 0.34);
 width: 100%;
 max-width: 600px;
+
+@media only screen and (max-width: 428px) { /* Adjust max-width as needed for iPhone 12 Pro */
+    height: auto /* Font size for mobile views */
+  }
 `
