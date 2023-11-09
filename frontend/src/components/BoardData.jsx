@@ -16,6 +16,7 @@ function BoardData ({ updateScores, currentPlayer, handleCurrentPlayer  }) {
   const resetBoard = gameData.board.tiles.map((row) => Array.from(row).fill(0));
   const [winningPlayer, setWinner] = useState(null);
 
+
   BoardData.propTypes = {
     updateScores: PropTypes.func.isRequired, // expects a function
     currentPlayer: PropTypes.func.isRequired, // expects a function
@@ -64,7 +65,7 @@ function BoardData ({ updateScores, currentPlayer, handleCurrentPlayer  }) {
       handleCurrentPlayer(currentPlayer === 1 ? 2 : 1);
     }
 
-   
+
 
     if (checkWinCondition(rowIndex, colIndex, currentPlayer)) {
       checkForWinner();
@@ -144,6 +145,7 @@ function BoardData ({ updateScores, currentPlayer, handleCurrentPlayer  }) {
         {boardState.map((row, rowIndex) =>
           row.map((cell, colIndex) => (
             <Square
+             playerOne={currentPlayer===1}
               key={`${rowIndex}-${colIndex}`}
               onClick={
                 isClickEnabled
@@ -180,11 +182,11 @@ const Container = styled.div`
   border: 1px solid white;
   display: grid;
   grid-template: repeat(17, 1fr) / repeat(17, 1fr);
-
   width: 100%;
   max-width: 400px;
   height: 400px;
 `;
+
 const Square = styled.div`
   display: flex;
   align-items: center;
@@ -192,4 +194,5 @@ const Square = styled.div`
   border: 1px solid white;
   max-width: 33.3px;
   max-height: 33.3px;
-`;
+  cursor: ${props => props.playerOne? `url(${pinkStone}) 20 13, auto` : `url(${purpleStone}) 20 13, auto`}
+`
