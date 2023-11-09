@@ -138,26 +138,14 @@ function BoardData ({ updateScores, currentPlayer, handleCurrentPlayer  }) {
     return false;
   }
 
-// const [mouseOnBoard, setMouseOnBoard]= useState(false)
-// const [currentCursor, setCurrentCursor]=useState()
-
-// function handleMouse(){
-// setMouseOnBoard(!mouseOnBoard)
-// if (currentPlayer=== 1){
-//     setCurrentCursor(1)
-// } else {
-//     setCurrentCursor(2)
-// }
-// }
-// console.log("currentCursor:", currentCursor)
-
 
   return (
     <Wrapper>
       <Container>
         {boardState.map((row, rowIndex) =>
           row.map((cell, colIndex) => (
-            <Square playerOne={currentPlayer===1}
+            <Square
+             playerOne={currentPlayer===1}
               key={`${rowIndex}-${colIndex}`}
               onClick={
                 isClickEnabled
@@ -206,6 +194,5 @@ const Square = styled.div`
   border: 1px solid white;
   max-width: 33.3px;
   max-height: 33.3px;
-  cursor: ${props => (props.playerOne ? 'url(${pinkStone}' : 'pointer')};
-
+  cursor: ${props => props.playerOne? `url(${pinkStone}) 20 13, auto` : `url(${purpleStone}) 20 13, auto`}
 `

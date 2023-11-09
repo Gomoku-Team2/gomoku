@@ -30,9 +30,9 @@ console.log(showRules)
 const GameRulesContainer=styled.div`
 @media (max-width: 700px){
     position: absolute;
-    top: 0;
-    padding: 190px 100px ;
-    right:20px;
+    top: -10px;
+    padding: 190px 100px;
+    right: -5px;
   border-radius: 10px;
   background: ${props => (props.showRules? "rgba(0, 0, 0, 0.8)": "none")}
 }
@@ -50,7 +50,7 @@ cursor: pointer;
 }
 @media (max-width: 700px) {
     padding: 5px 10px;
-    font-size: 14px
+    font-size: 14px;
   }
 `
 
